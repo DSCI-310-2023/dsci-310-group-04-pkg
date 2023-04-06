@@ -25,7 +25,7 @@ classy_read <- function(path, col = NULL, ...){
     stop("`path` must be of type `character`")
   }
 
-  data <- read.csv(url(path))
+  data <- utils::read.csv(url(path))
 
   if (!is.null(col)) {
     if (!is.character(col))
