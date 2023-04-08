@@ -2,3 +2,8 @@
 
 export(classy_read)
 export(count_proportion)
+export(create_faceted_hist_plot)
+importFrom(ggplot2,aes)
+importFrom(ggplot2,facet_grid)
+importFrom(ggplot2,geom_bar)
+importFrom(ggplot2,ggplot)

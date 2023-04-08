@@ -14,20 +14,20 @@ col_error <- "`col` must be of type `character`"
 
 # test thats
 test_that("`classy_read` should read in a .csv from a URL and produce an output summarizing NaNs in the dataset when no other arguments are provided", {
-  expect_equivalent(classy_read(iris), test_dataset)
+  expect_equal(classy_read(iris), test_dataset)
   expect_output(classy_read(iris), nan_print)
 })
 
 test_that("`classy_read` should convert the specified column to the `factor` type", {
-  expect_equivalent(classy_read(iris, "species"), test_dataset_factored)
+  expect_equal(classy_read(iris, "species"), test_dataset_factored)
 })
 
 test_that("`classy_read` should select the specified columns while the preceding `col` argument is not provided", {
-  expect_equivalent(classy_read(iris, col = NULL, species, sepal_length:sepal_width), test_dataset_selected)
+  expect_equal(classy_read(iris, col = NULL, species, sepal_length:sepal_width), test_dataset_selected)
 })
 
 test_that("`classy_read` should convert the specified column to the `factor` type and select the specified columns when both arguments are provided", {
-  expect_equivalent(classy_read(iris, "species", species, sepal_length:sepal_width), test_dataset_all)
+  expect_equal(classy_read(iris, "species", species, sepal_length:sepal_width), test_dataset_all)
 })
 
 test_that("`classy_read` should produce an output summarizing NaNs in the dataset after all transformations are applied", {

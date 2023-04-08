@@ -21,4 +21,3 @@ test_that("`count_proportion` should throw an error when incorrect datatypes are
 test_that("`count_classes` should throw an error when the dataframe provided is empty", {
   expect_error(count_proportion(empty_df, 'string', 'string'))
 })
-
