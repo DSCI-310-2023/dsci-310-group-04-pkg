@@ -26,7 +26,7 @@ As these functions were intended to be used specifically for our
 project, `classy_read()` and `create_faceted_hist_plot()` contain quirks
 in their implementation that may make them non-applicable for more
 general uses. While `count_proportion()` is more generalizable, it is
-recommended to use vignette(“genreclassifier”) to learn more about the
+recommended to read the function documentation to learn more about the
 functions before using them.
 
 ## Installation
@@ -38,4 +38,8 @@ install.packages("genreclassifier")
 
 ## Contributing
 
-## License
+For contribution guidelines, please refer to the standards outlined by
+the main project
+[here](https://github.com/annabelle-ep/dsci-310-group-04/blob/main/CONTRIBUTING.md).
+
+###### **License:** [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)

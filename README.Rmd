@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# enreclassifier
+# genreclassifier
 
 <!-- badges: start -->
   [![R-CMD-check](https://github.com/DSCI-310/dsci-310-group-04-pkg/workflows/R-CMD-check/badge.svg)](https://github.com/DSCI-310/dsci-310-group-04-pkg/actions)
@@ -39,4 +39,6 @@ install.packages("genreclassifier")
 
 ## Contributing 
 
-## License
+For contribution guidelines, please refer to the standards outlined by the main project [here](https://github.com/annabelle-ep/dsci-310-group-04/blob/main/CONTRIBUTING.md).
+
+###### **License:** [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
