@@ -3,8 +3,8 @@ Title: Classifying Music Genres Using Spotify Audio Features
 Version: 0.0.0.1
 Authors@R: 
   c(person("Annabelle", "Purnomo", , "apurnomo@student.ubc.ca", role = c("aut", "cre")),
-    person("Ethan", "Pang", , "@gmail.com", role = c("aut")),
-    person("Olivia", "Pang", , "@gmail.com", role = c("aut")))
+    person("Ethan", "Pang", , "epang210@gmail.com", role = c("aut")),
+    person("Olivia", "Pang", , "oliviaxpang@gmail.com", role = c("aut")))
 Description: This package includes functions needed  to load in data to predict song genres, count the proportions, and create faceted histogram plots for various Spotify's audio features as predictors: danceability, energy, key, loudness, mode, speechiness, acousticness, instrumentalness, liveness, valence, tempo.
 License: MIT + file LICENSE
 Encoding: UTF-8
