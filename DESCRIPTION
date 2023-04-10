@@ -1,17 +1,24 @@
 Package: genreclassifier
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Classifying Music Genres Using Spotify Audio Features
+Version: 0.0.0.1
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+  c(person(given = "Annabelle",
+           family = "Purnomo",
+           role = "cre",
+           email = "apurnomo@student.ubc.ca"),
+    person(given = "Ethan",
+           family = "Pang",
+           role = c("aut", "cre")),
+    person(given = "Olivia",
+           family = "Pang",
+           role = "cre"))
+Description: This package attempts to build a k-nearest neighbour (KNN) classification model to predict song genres using various Spotify's audio features as predictors: danceability, energy, key, loudness, mode, speechiness, acousticness, instrumentalness, liveness, valence, tempo. The data set used is from rdatascience/tidytuesday data. It uses spotifyr to get audio track features from Spotify's Web API. It can be found specifically with this URL, but also in our repository data folder. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Suggests: 
     covr,
-    DT,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Imports: 
@@ -20,4 +27,5 @@ Imports:
     RCurl,
     rlang,
     tibble,
-    utils
+    utils,
+    usethis
