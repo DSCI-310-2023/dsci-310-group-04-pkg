@@ -1,2 +1,4 @@
-^.*\.Rproj$
+^genreclassifier\.Rproj$
 ^\.Rproj\.user$
+^LICENSE\.md$
+^\.github$
