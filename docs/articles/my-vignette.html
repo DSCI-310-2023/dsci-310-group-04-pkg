@@ -70,9 +70,118 @@
 
     
     
+<p>The genreclassification package makes exploratory data analysis for a
+classification project easier and more efficient:</p>
+<ul>
+<li>By cleaning your data as you read it in</li>
+<li>Counting the proportion of unique factors in the data</li>
+<li>Visualizing the tidied data with faceted histogram plots</li>
+</ul>
+<div class="section level3">
+<h3 id="data-iris">Data : iris<a class="anchor" aria-label="anchor" href="#data-iris"></a>
+</h3>
+<p>For the purpose of this demonstration, we will be using the default
+<code>iris</code> dataset from R.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dsci-310.github.io/dsci-310-group-04-pkg/">genreclassifier</a></span><span class="op">)</span></span></code></pre></div>
-  </main>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"iris"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 150   5</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">iris</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span></span>
+<span><span class="co">#&gt; 1          5.1         3.5          1.4         0.2  setosa</span></span>
+<span><span class="co">#&gt; 2          4.9         3.0          1.4         0.2  setosa</span></span>
+<span><span class="co">#&gt; 3          4.7         3.2          1.3         0.2  setosa</span></span>
+<span><span class="co">#&gt; 4          4.6         3.1          1.5         0.2  setosa</span></span>
+<span><span class="co">#&gt; 5          5.0         3.6          1.4         0.2  setosa</span></span>
+<span><span class="co">#&gt; 6          5.4         3.9          1.7         0.4  setosa</span></span></code></pre></div>
+<p>Although we are able to easily import this dataset using built-in R
+functions, for the purpose of classification we will use the
+<code><a href="../reference/classy_read.html">classy_read()</a></code> function for its convenient built in
+functions.</p>
+<p>You can see that this is the same dataset, obtained from a Github URL
+as is often done for reproducibility.</p>
+<p><em>Be aware that in this version of the <code>iris</code> dataset,
+the column names are slightly different.</em></p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">iris_url</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="st">"https://gist.githubusercontent.com/curran/a08a1080b88344b0c8a7/raw/0e7a9b0a5d22642a06d3d5b9bcbad9890c8ee534/iris.csv"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="read-tidy-data-with-classy_read">Read tidy data with classy_read()<a class="anchor" aria-label="anchor" href="#read-tidy-data-with-classy_read"></a>
+</h3>
+<p>Now, we will read it in with <code><a href="../reference/classy_read.html">classy_read()</a></code> in its
+simplest form. The dataset is now read from the source as is.</p>
+<p>The number of NaNs are summarized.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">regular_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/classy_read.html">classy_read</a></span><span class="op">(</span><span class="va">iris_url</span>, col <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   sepal_length sepal_width petal_length petal_width species</span></span>
+<span><span class="co">#&gt; 1            0           0            0           0       0</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">regular_data</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 150   5</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">regular_data</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   sepal_length sepal_width petal_length petal_width species</span></span>
+<span><span class="co">#&gt; 1          5.1         3.5          1.4         0.2  setosa</span></span>
+<span><span class="co">#&gt; 2          4.9         3.0          1.4         0.2  setosa</span></span>
+<span><span class="co">#&gt; 3          4.7         3.2          1.3         0.2  setosa</span></span>
+<span><span class="co">#&gt; 4          4.6         3.1          1.5         0.2  setosa</span></span>
+<span><span class="co">#&gt; 5          5.0         3.6          1.4         0.2  setosa</span></span>
+<span><span class="co">#&gt; 6          5.4         3.9          1.7         0.4  setosa</span></span></code></pre></div>
+<p>Specify a <code>col</code> to convert a column to type
+<code>factor</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">factored_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/classy_read.html">classy_read</a></span><span class="op">(</span><span class="va">iris_url</span>, <span class="st">"species"</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   sepal_length sepal_width petal_length petal_width species</span></span>
+<span><span class="co">#&gt; 1            0           0            0           0       0</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">factored_data</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 150   5</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">factored_data</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   sepal_length sepal_width petal_length petal_width species</span></span>
+<span><span class="co">#&gt; 1          5.1         3.5          1.4         0.2  setosa</span></span>
+<span><span class="co">#&gt; 2          4.9         3.0          1.4         0.2  setosa</span></span>
+<span><span class="co">#&gt; 3          4.7         3.2          1.3         0.2  setosa</span></span>
+<span><span class="co">#&gt; 4          4.6         3.1          1.5         0.2  setosa</span></span>
+<span><span class="co">#&gt; 5          5.0         3.6          1.4         0.2  setosa</span></span>
+<span><span class="co">#&gt; 6          5.4         3.9          1.7         0.4  setosa</span></span></code></pre></div>
+<p>Optionally provide additional parameters to select the relevant
+columns for your classification.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">classy_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/classy_read.html">classy_read</a></span><span class="op">(</span><span class="va">iris_url</span>, <span class="st">"species"</span>, <span class="va">species</span>, <span class="va">petal_length</span><span class="op">:</span><span class="va">petal_width</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   species petal_length petal_width</span></span>
+<span><span class="co">#&gt; 1       0            0           0</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">classy_data</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 150   3</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">classy_data</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   species petal_length petal_width</span></span>
+<span><span class="co">#&gt; 1  setosa          1.4         0.2</span></span>
+<span><span class="co">#&gt; 2  setosa          1.4         0.2</span></span>
+<span><span class="co">#&gt; 3  setosa          1.3         0.2</span></span>
+<span><span class="co">#&gt; 4  setosa          1.5         0.2</span></span>
+<span><span class="co">#&gt; 5  setosa          1.4         0.2</span></span>
+<span><span class="co">#&gt; 6  setosa          1.7         0.4</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="count-proportions-with-count_propotion">Count proportions with count_propotion()<a class="anchor" aria-label="anchor" href="#count-proportions-with-count_propotion"></a>
+</h3>
+<p><code>count_proportion</code> checks the proportions of unique data
+values in a column and the proportion of the data that each value makes
+up.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">prop</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/count_proportion.html">count_proportion</a></span><span class="op">(</span><span class="va">classy_data</span>, <span class="st">"species"</span>, <span class="st">"tidied"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="display-your-exploratory-data-with-create_faceted_hist_plot">Display your exploratory data with create_faceted_hist_plot()<a class="anchor" aria-label="anchor" href="#display-your-exploratory-data-with-create_faceted_hist_plot"></a>
+</h3>
+<p>Two examples below show how you can use
+<code><a href="../reference/create_faceted_hist_plot.html">create_faceted_hist_plot()</a></code> to create faceted histogram
+plots for each variable in <code>row</code>and align them for EDA.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/create_faceted_hist_plot.html">create_faceted_hist_plot</a></span><span class="op">(</span><span class="va">classy_data</span>, <span class="st">"petal_width"</span>, <span class="st">"species"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="my-vignette_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/create_faceted_hist_plot.html">create_faceted_hist_plot</a></span><span class="op">(</span><span class="va">classy_data</span>, <span class="st">"petal_length"</span>, <span class="st">"species"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="my-vignette_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
+</div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
