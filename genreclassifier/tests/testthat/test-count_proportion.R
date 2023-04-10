@@ -1,3 +1,4 @@
+
 # function input for tests
 three_value_113 <- data.frame(first_column = c("class1", "class2", "class3", "class3", "class3"), second_column = c(1,1,1,1,1))
 one_value_2 <- data.frame(first_column = c("class1", "class1"))
@@ -18,6 +19,14 @@ test_that("`count_proportion` should throw an error when incorrect datatypes are
   expect_error(count_proportion(three_value_113, 'first_column', class))
 })
 
-test_that("`count_classes` should throw an error when the dataframe provided is empty", {
+test_that("`count_proportion` should throw an error when the dataframe provided is empty", {
   expect_error(count_proportion(empty_df, 'string', 'string'))
+})
+
+test_that("`count_proportion` should throw an error when the dataframe provided is not a dataframe", {
+  expect_error(count_proportion('string', 'string', 'string'))
+})
+
+test_that("`count_proportion` should throw an error when the to_prop provided is not a string", {
+  expect_error(count_proportion(three_value_113, three_value_113, 'string'))
 })
