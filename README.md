@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# genreclassifier
+# enreclassifier
 
 <!-- badges: start -->
 
@@ -15,12 +15,12 @@
 genreclassifier is a package which includes functions that aim to help
 cut down redundant code chunks from the project linked above.
 
--   `classy_read()` Prepares a dataframe for classification
--   `count_proportion()` Creates a dataframe counting the relative
+  - `classy_read()` Prepares a dataframe for classification
+  - `count_proportion()` Creates a dataframe counting the relative
     proportions of unique values in a specified column
--   `create_faceted_hist_plot()` Creates a faceted histogram comparing
+  - `create_faceted_hist_plot()` Creates a faceted histogram comparing
     the distributions of song feature values across different
-    “playlist_genre” subgroups
+    “playlist\_genre” subgroups
 
 As these functions were intended to be used specifically for our
 project, `classy_read()` and `create_faceted_hist_plot()` contain quirks
