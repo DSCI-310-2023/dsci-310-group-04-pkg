@@ -1,16 +1,14 @@
-# author: Annabelle Purnomo
-# date: 2023-03-10
-
-#' Make faceted plot
+#' Create a faceted plot for a target variable
 #'
-#' Creates a faceted plot for the "playlist_genre" target variable
-#' including any selected features
+#' Creates a faceted plot for the target variable "playlist_genre"
+#' for classification using the Spotify Songs dataset
+#' including any selected features,
 #' combined using the face_grid() function
 #'
-#' @param df Tidy data containing a list of genres and acoustic features, as a dataframe
-#' @param feature Specified acoustic feature of which we want a visualisation, as a character type
+#' @param df Tidy data containing a list of genres and acoustic features, as a `df`.
+#' @param feature Specified acoustic feature of which we want a visualization, as a `character`.
 #'
-#' @return faceted plot of 6 histograms
+#' @return A faceted plot of 6 histograms, one of each genre.
 #' @export
 #' @examples
 #' x <- RCurl::getURL("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-21/spotify_songs.csv")

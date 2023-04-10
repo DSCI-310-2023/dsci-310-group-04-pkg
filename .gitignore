@@ -5,3 +5,4 @@
 .DS_Store
 .config/
 .local/
+inst/doc

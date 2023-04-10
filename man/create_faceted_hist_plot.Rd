@@ -2,21 +2,22 @@
 % Please edit documentation in R/create_faceted_hist_plot.R
 \name{create_faceted_hist_plot}
 \alias{create_faceted_hist_plot}
-\title{Make faceted plot}
+\title{Create a faceted plot for a target variable}
 \usage{
 create_faceted_hist_plot(df, feature)
 }
 \arguments{
-\item{df}{Tidy data containing a list of genres and acoustic features, as a dataframe}
+\item{df}{Tidy data containing a list of genres and acoustic features, as a \code{df}.}
 
-\item{feature}{Specified acoustic feature of which we want a visualisation, as a character type}
+\item{feature}{Specified acoustic feature of which we want a visualization, as a \code{character}.}
 }
 \value{
-faceted plot of 6 histograms
+A faceted plot of 6 histograms, one of each genre.
 }
 \description{
-Creates a faceted plot for the "playlist_genre" target variable
-including any selected features
+Creates a faceted plot for the target variable "playlist_genre"
+for classification using the Spotify Songs dataset
+including any selected features,
 combined using the face_grid() function
 }
 \examples{

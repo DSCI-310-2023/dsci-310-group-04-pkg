@@ -12,6 +12,8 @@ RoxygenNote: 7.2.3
 Suggests: 
     covr,
     DT,
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Imports: 
@@ -21,3 +23,4 @@ Imports:
     rlang,
     tibble,
     utils
+VignetteBuilder: knitr
