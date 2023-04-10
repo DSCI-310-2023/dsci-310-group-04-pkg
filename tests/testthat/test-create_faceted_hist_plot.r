@@ -25,3 +25,13 @@ test_that("`create_faceted_hist_plot` should throw an error when the dataframe p
             expect_error(create_faceted_hist_plot(empty_df, 'string'))
           })
 
+test_that("`create_faceted_hist_plot` should throw an error when the dataframe provided is not a dataframe",
+          {
+            expect_error(create_faceted_hist_plot('string', 'string'))
+          })
+
+test_that("`create_faceted_hist_plot` should throw an error when the feature provided is not a string",
+          {
+            expect_error(create_faceted_hist_plot(empty_df, empty_df))
+          })
+
