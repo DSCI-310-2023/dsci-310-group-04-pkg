@@ -1,14 +1,14 @@
 #' Create a faceted plot for a target variable
 #'
-#' Creates a faceted plot for the target variable "playlist_genre"
-#' for classification using the Spotify Songs dataset
-#' including any selected features,
+#' Creates a faceted plot for the target variable
+#' including the selected feature
 #' combined using the face_grid() function
 #'
 #' @param df Tidy data containing a list of genres and acoustic features, as a `df`.
 #' @param feature Specified acoustic feature of which we want a visualization, as a `character`.
+#' @param row Input to 'rows' parameter of `facet_grid()``
 #'
-#' @return A faceted plot of 6 histograms, one of each genre.
+#' @return A faceted plot of multiple histograms.
 #' @export
 #' @examples
 #' x <- RCurl::getURL("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-21/spotify_songs.csv")
@@ -17,8 +17,11 @@
 
 #' @importFrom ggplot2 ggplot aes geom_bar facet_grid
 
-create_faceted_hist_plot <- function(df,feature) {
+create_faceted_hist_plot <- function(df,feature,row) {
   if (!is.character(feature)) {
+    stop("`feature` should be a string")
+  }
+  if (!is.character(row)) {
     stop("`feature` should be a string")
   }
   if (!is.data.frame(df)) {
@@ -31,5 +34,5 @@ create_faceted_hist_plot <- function(df,feature) {
 
   ggplot(df, aes(x = !!xvar)) +
     geom_bar(stat = "bin", bins = 20)  +
-    facet_grid(rows = "playlist_genre")
+    facet_grid(rows = row)
 }

@@ -14,6 +14,28 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup, include = FALSE}
 library(genreclassifier)
 ```
+
+```{r, include = FALSE}
+data("iris")
+```
+
+For the purpose of this demonstration, 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
