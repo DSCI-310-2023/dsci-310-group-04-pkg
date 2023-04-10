@@ -24,3 +24,4 @@ Imports:
     tibble,
     utils
 VignetteBuilder: knitr
+URL: https://dsci-310.github.io/dsci-310-group-04-pkg/
