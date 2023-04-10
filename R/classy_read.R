@@ -6,8 +6,8 @@
 #' checks data for NaNs,
 #' then returns the data frame object for the purpose of Classification.
 #'
-#' @param path A URL pointing to the data to be imported.
-#' @param col  A column in the data frame to convert to the type `factor`.
+#' @param path A string - the URL pointing to the data to be imported.
+#' @param col  A string - the column in the data frame to convert to the type `factor`.
 #' @inheritParams dplyr::select
 
 #'

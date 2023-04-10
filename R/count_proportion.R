@@ -27,10 +27,10 @@ count_proportion <- function(data, to_prop, descriptor) {
     stop("`data` should be a data frame")
   }
   if (!is.character(to_prop) | !length(to_prop) == 1) {
-    stop("`to_prop should be a strings")
+    stop("`to_prop should be a string")
   }
   if (!is.character(descriptor) | !length(descriptor) == 1) {
-    stop("`descriptor should be strings")
+    stop("`descriptor should be string")
   }
   tbr <- data |>
     dplyr::group_by(data[to_prop]) |>

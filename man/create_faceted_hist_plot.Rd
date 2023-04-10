@@ -4,24 +4,25 @@
 \alias{create_faceted_hist_plot}
 \title{Create a faceted plot for a target variable}
 \usage{
-create_faceted_hist_plot(df, feature)
+create_faceted_hist_plot(df, feature, row)
 }
 \arguments{
 \item{df}{Tidy data containing a list of genres and acoustic features, as a \code{df}.}
 
 \item{feature}{Specified acoustic feature of which we want a visualization, as a \code{character}.}
+
+\item{row}{Input to 'rows' parameter of \code{facet_grid()}, as a \code{character}.}
 }
 \value{
-A faceted plot of 6 histograms, one of each genre.
+A faceted plot of multiple histograms.
 }
 \description{
-Creates a faceted plot for the target variable "playlist_genre"
-for classification using the Spotify Songs dataset
-including any selected features,
+Creates a faceted plot for the target variable
+including the selected feature
 combined using the face_grid() function
 }
 \examples{
 x <- RCurl::getURL("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-21/spotify_songs.csv")
 test_data <- read.csv(text = x)
-create_faceted_hist_plot(test_data, 'danceability')
+create_faceted_hist_plot(test_data, 'danceability', 'playlist_genre')
 }

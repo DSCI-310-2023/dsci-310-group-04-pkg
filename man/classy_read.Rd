@@ -7,9 +7,9 @@
 classy_read(path, col = NULL, ...)
 }
 \arguments{
-\item{path}{A URL pointing to the data to be imported.}
+\item{path}{A string - the URL pointing to the data to be imported.}
 
-\item{col}{A column in the data frame to convert to the type \code{factor}.}
+\item{col}{A string - the column in the data frame to convert to the type \code{factor}.}
 
 \item{...}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> One or more unquoted
 expressions separated by commas. Variable names can be used as if they

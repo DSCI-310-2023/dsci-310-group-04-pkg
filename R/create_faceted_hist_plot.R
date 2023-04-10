@@ -6,14 +6,14 @@
 #'
 #' @param df Tidy data containing a list of genres and acoustic features, as a `df`.
 #' @param feature Specified acoustic feature of which we want a visualization, as a `character`.
-#' @param row Input to 'rows' parameter of `facet_grid()``
+#' @param row Input to 'rows' parameter of `facet_grid()`, as a `character`.
 #'
 #' @return A faceted plot of multiple histograms.
 #' @export
 #' @examples
 #' x <- RCurl::getURL("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-21/spotify_songs.csv")
 #' test_data <- read.csv(text = x)
-#' create_faceted_hist_plot(test_data, 'danceability')
+#' create_faceted_hist_plot(test_data, 'danceability', 'playlist_genre')
 
 #' @importFrom ggplot2 ggplot aes geom_bar facet_grid
 
