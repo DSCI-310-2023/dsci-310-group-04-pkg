@@ -10,6 +10,8 @@
 [![codecov](https://codecov.io/gh/DSCI-310/dsci-310-group-04-pkg/branch/main/graph/badge.svg?token=Hx34xKHsz9)](https://codecov.io/gh/DSCI-310/dsci-310-group-04-pkg)
 <!-- badges: end -->
 
+[What The Package Does](https://dsci-310.github.io/dsci-310-group-04-pkg/)
+
 ## Overview
 
 genreclassifier is a package which includes functions that aim to help
