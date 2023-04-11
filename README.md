@@ -14,8 +14,8 @@
 
 ## Overview
 
-genreclassifier is a package which includes functions that aim to help
-cut down redundant code chunks from the project linked [here](https://github.com/annabelle-ep/dsci-310-group-04)
+*genreclassifier* is a package which includes functions that were developed with the aim to
+cut down redundant code chunks from the [Classifying Music Genres Using Spotify Audio Features](https://github.com/annabelle-ep/dsci-310-group-04) project.
 
   - `classy_read()` Prepares a dataframe for classification
   - `count_proportion()` Creates a dataframe counting the relative
@@ -30,6 +30,15 @@ in their implementation that may make them non-applicable for more
 general uses. While `count_proportion()` is more generalizable, it is
 recommended to read the function documentation to learn more about the
 functions before using them.
+
+### Usage
+
+At a high level, *genreclassifier* can be used to complete the exploratory data analysis portion of a classification project as demonstrated in the project linked above by:
+
+ 1. Reading in a dataset, providing additional information and optional tidying
+ 2. Creating tables and plots visualizing the data for the purpose of EDA 
+
+It fills a similar space as the [caret package](https://cran.r-project.org/web/packages/caret/vignettes/caret.html) does for streamlining Classification, which may be used in conjuction at your discretion - as always, read the documentation.
 
 ## Installation
 
