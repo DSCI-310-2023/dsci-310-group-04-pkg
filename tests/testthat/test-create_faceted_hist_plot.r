@@ -1,25 +1,19 @@
-# test dataset
-x <- RCurl::getURL("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-21/spotify_songs.csv")
-
-test_data <- read.csv(text = x)
-tidy_test_data <- test_data |>
-  dplyr::select(playlist_genre, danceability:tempo)
-
-# function input for tests
+# df input for tests
+data <- as.data.frame(data("iris"))
 empty_df <- tibble::tibble()
 
 # tests
 test_that("`create_faceted_hist_plot` should return a ggplot that contains degree of the feature on the x axis",
           {
-            plot <- create_faceted_hist_plot(tidy_test_data, 'danceability', 'playlist_genre')
-            expect_equal(plot$labels$x, "danceability")
+            plot <- create_faceted_hist_plot(data, 'Petal.Length', 'Species')
+            expect_equal(plot$labels$x, "Petal.Length")
           })
 
-test_that("`create_faceted_hist_plot` should throw an error when incorrect datatypes are passed into its parameters",
+test_that("`create_faceted_hist_plot` should throw an error when incorrect datatypes are passed where Characters are expected",
           {
-            expect_error(create_faceted_hist_plot('tidy_test_data', 'danceability', playlist_genre))
-            expect_error(create_faceted_hist_plot('tidy_test_data', danceability, 'playlist_genre'))
-            expect_error(create_faceted_hist_plot('tidy_test_data', danceability, playlist_genre))
+            expect_error(create_faceted_hist_plot(tidy_test_data, 'Petal.Length', 'Species'))
+            expect_error(create_faceted_hist_plot(tidy_test_data, 'Petal.Length', Species))
+            expect_error(create_faceted_hist_plot(tidy_test_data, Petal.Length, 'Species'))
           })
 
 test_that("`create_faceted_hist_plot` should throw an error when the dataframe provided is empty",
@@ -34,10 +28,10 @@ test_that("`create_faceted_hist_plot` should throw an error when the dataframe p
 
 test_that("`create_faceted_hist_plot` should throw an error when the feature provided is not a string",
           {
-            expect_error(create_faceted_hist_plot(empty_df, empty_df))
+            expect_error(create_faceted_hist_plot(empty_df, empty_df, 'string'))
           })
 
 test_that("`create_faceted_hist_plot` should throw an error when the row provided is not a string",
           {
-            expect_error(create_faceted_hist_plot(empty_df, empty_df, empty_df))
+            expect_error(create_faceted_hist_plot(empty_df, 'empty_df', empty_df))
           })

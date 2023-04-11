@@ -22,7 +22,6 @@ including the selected feature
 combined using the face_grid() function
 }
 \examples{
-x <- RCurl::getURL("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-21/spotify_songs.csv")
-test_data <- read.csv(text = x)
-create_faceted_hist_plot(test_data, 'danceability', 'playlist_genre')
+data <- as.data.frame(data("iris"))
+plot <- create_faceted_hist_plot(data, 'Petal.Length', 'Species')
 }
