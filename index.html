@@ -65,7 +65,7 @@
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p>genreclassifier is a package which includes functions that aim to help cut down redundant code chunks from the project linked <a href="https://github.com/annabelle-ep/dsci-310-group-04" class="external-link">here</a></p>
+<p><em>genreclassifier</em> is a package which includes functions that were developed with the aim to cut down redundant code chunks from the <a href="https://github.com/annabelle-ep/dsci-310-group-04" class="external-link">Classifying Music Genres Using Spotify Audio Features</a> project.</p>
 <ul>
 <li>
 <code><a href="reference/classy_read.html">classy_read()</a></code> Prepares a dataframe for classification</li>
@@ -75,6 +75,16 @@
 <code><a href="reference/create_faceted_hist_plot.html">create_faceted_hist_plot()</a></code> Creates a faceted histogram comparing the distributions of song feature values across different “playlist_genre” subgroups</li>
 </ul>
 <p>As these functions were intended to be used specifically for our project, <code><a href="reference/classy_read.html">classy_read()</a></code> and <code><a href="reference/create_faceted_hist_plot.html">create_faceted_hist_plot()</a></code> contain quirks in their implementation that may make them non-applicable for more general uses. While <code><a href="reference/count_proportion.html">count_proportion()</a></code> is more generalizable, it is recommended to read the function documentation to learn more about the functions before using them.</p>
+<div class="section level3">
+<h3 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h3>
+<p>At a high level, <em>genreclassifier</em> can be used to complete the exploratory data analysis portion of a classification project as demonstrated in the project linked above by:</p>
+<ol style="list-style-type: decimal">
+<li>Reading in a dataset, providing additional information and optional tidying</li>
+<li>Creating tables and plots visualizing the data for the purpose of EDA</li>
+</ol>
+<p>It fills a similar space as the <a href="https://cran.r-project.org/web/packages/caret/vignettes/caret.html" class="external-link">caret package</a> does for streamlining Classification, which may be used in conjuction at your discretion - as always, read the documentation.</p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
