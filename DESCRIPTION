@@ -1,6 +1,6 @@
 Package: genreclassifier
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Classifying Music Genres Using Spotify Audio Features
+Version: 1.0.0
 Authors@R: 
   c(person("Annabelle", "Purnomo", , "apurnomo@student.ubc.ca", role = c("aut", "cre")),
     person("Ethan", "Pang", , "epang210@gmail.com", role = c("aut")),
