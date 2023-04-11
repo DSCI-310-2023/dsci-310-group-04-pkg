@@ -35,7 +35,7 @@ functions before using them.
 
 ``` r
 # To install genreclassifier, in the r console input:
-install.packages("genreclassifier")
+devtools::install_github("DSCI-310/dsci-310-group-04-pkg")
 ```
 
 ## Contributing
