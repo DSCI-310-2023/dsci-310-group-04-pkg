@@ -11,9 +11,8 @@
 #' @return A faceted plot of multiple histograms.
 #' @export
 #' @examples
-#' x <- RCurl::getURL("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-21/spotify_songs.csv")
-#' test_data <- read.csv(text = x)
-#' create_faceted_hist_plot(test_data, 'danceability', 'playlist_genre')
+#' data <- as.data.frame(data("iris"))
+#' plot <- create_faceted_hist_plot(data, 'Petal.Length', 'Species')
 
 #' @importFrom ggplot2 ggplot aes geom_bar facet_grid
 
@@ -22,7 +21,7 @@ create_faceted_hist_plot <- function(df,feature,row) {
     stop("`feature` should be a string")
   }
   if (!is.character(row)) {
-    stop("`feature` should be a string")
+    stop("`row` should be a string")
   }
   if (!is.data.frame(df)) {
     stop("`df` should be a data frame")
