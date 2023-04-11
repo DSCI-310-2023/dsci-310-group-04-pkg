@@ -15,7 +15,7 @@
 ## Overview
 
 genreclassifier is a package which includes functions that aim to help
-cut down redundant code chunks from the project linked above.
+cut down redundant code chunks from the project linked [here](https://github.com/annabelle-ep/dsci-310-group-04)
 
   - `classy_read()` Prepares a dataframe for classification
   - `count_proportion()` Creates a dataframe counting the relative
