@@ -2,28 +2,30 @@
 % Please edit documentation in R/count_proportion.R
 \name{count_proportion}
 \alias{count_proportion}
-\title{Make proportion dataframe}
+\title{Create a dataframe showing percent proportions}
 \usage{
 count_proportion(data, to_prop, descriptor)
 }
 \arguments{
 \item{data}{A data frame or data frame extension (e.g. a tibble).}
 
-\item{to_prop}{A string name of the column to be proportionalized}
+\item{to_prop}{A string name of the column to be proportionalized.}
 
-\item{descriptor}{A string that can be added to describe from what data the proportion originated from}
+\item{descriptor}{A string that can be added to describe from what data the proportion originated from.}
 }
 \value{
-A data frame with three columns.
-The first column (has the same name as the to_prop parameter) lists the unique values from the to_prop named column of the input data frame.
-The second column (has the name of the descriptor + "_n") lists the number of observations for each value from the first column.
-The third column (has the name of the descriptor + "_prop") lists the percent proportion of the column 1 value out of the whole original dataset.
+A data frame. The output has the following properties:
+\itemize{
+\item The first column (has the same name as the to_prop parameter) lists the unique values from the to_prop named column of the input data frame.
+\item The second column (has the name of the descriptor + "_n") lists the number of observations for each value from the first column.
+\item The third column (has the name of the descriptor + "_prop") lists the percent proportion of the column 1 value out of the whole original dataset.
+}
 }
 \description{
 Creates a new data frame with three columns,
-listing the unique values in a cloumn for the input data frame,
+listing the unique values in a column for the input data frame,
 and the number of observations for each value,
-along with its proportion of the total data
+along with its proportion of the total data.
 }
 \examples{
 one_value_2 <- data.frame(first_column = c("class1", "class1"))

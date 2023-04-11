@@ -2,21 +2,27 @@
 % Please edit documentation in R/classy_read.R
 \name{classy_read}
 \alias{classy_read}
-\title{author: Olivia Pang
-date: 2023-03-11
-Make tidied dataframe}
+\title{Import and tidy a dataframe for classification}
 \usage{
 classy_read(path, col = NULL, ...)
 }
 \arguments{
-\item{path}{A file path to a .csv file}
+\item{path}{A string - the URL pointing to the data to be imported.}
 
-\item{col}{A column in the data frame to convert to the type Factor}
+\item{col}{A string - the column in the data frame to convert to the type \code{factor}.}
 
-\item{...}{Columns to select from the data frame}
+\item{...}{<\code{\link[dplyr:dplyr_tidy_select]{tidy-select}}> One or more unquoted
+expressions separated by commas. Variable names can be used as if they
+were positions in the data frame, so expressions like \code{x:y} can
+be used to select a range of variables.}
 }
 \value{
-A data frame with the tidied data.
+A data frame. The output has the following properties:
+\itemize{
+\item Rows are the data imported from using URL, NaNs are counted but not modified.
+\item \code{col} is converted to type \code{factor}
+\item Columns are modified if arguments were passed to \code{...}
+}
 }
 \description{
 Reads in a CSV file as a data frame,
@@ -26,5 +32,8 @@ checks data for NaNs,
 then returns the data frame object for the purpose of Classification.
 }
 \examples{
-classy_read("https://gist.githubusercontent.com/curran/a08a1080b88344b0c8a7/raw/0e7a9b0a5d22642a06d3d5b9bcbad9890c8ee534/iris.csv", "petal_width")
+URL <- "https://gist.githubusercontent.com/curran/a08a1080b88344b0c8a7/raw/0e7a9b0a5d22642a06d3d5b9bcbad9890c8ee534/iris.csv"
+classy_read(URL, "species")
+classy_read(URL, col = NULL, species)
+classy_read(URL, "species", species, sepal_length:sepal_width)
 }

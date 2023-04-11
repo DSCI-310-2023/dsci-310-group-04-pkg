@@ -1,0 +1,107 @@
+---
+title: "Introduction to genreclassifier"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to genreclassifier}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include = FALSE}
+library(genreclassifier)
+```
+
+The genreclassification package makes exploratory data analysis for a classification project easier and more efficient:
+
+-   By cleaning your data as you read it in
+-   Counting the proportion of unique factors in the data
+-   Visualizing the tidied data with faceted histogram plots
+
+### Data : iris
+
+For the purpose of this demonstration, we will be using the default `iris` dataset from R.
+
+```{r}
+data("iris")
+dim(iris)
+head(iris)
+```
+
+Although we are able to easily import this dataset using built-in R functions, for the purpose of classification we will use the `classy_read()` function for its convenient built in functions.
+
+You can see that this is the same dataset, obtained from a Github URL as is often done for reproducibility. 
+
+*Be aware that in this version of the `iris` dataset, the column names are slightly different.*
+```{r}
+iris_url <- ("https://gist.githubusercontent.com/curran/a08a1080b88344b0c8a7/raw/0e7a9b0a5d22642a06d3d5b9bcbad9890c8ee534/iris.csv")
+```
+
+### Read tidy data with classy_read()
+
+Now, we will read it in with `classy_read()` in its simplest form. The dataset is now read from the source as is.
+
+The number of NaNs are summarized.
+
+```{r}
+regular_data <- classy_read(iris_url, col = NULL)
+dim(regular_data)
+head(regular_data)
+```
+
+Specify a `col` to convert a column to type `factor`:
+
+```{r}
+factored_data <- classy_read(iris_url, "species")
+dim(factored_data)
+head(factored_data)
+```
+
+Optionally provide additional parameters to select the relevant columns for your classification.
+
+```{r}
+classy_data <- classy_read(iris_url, "species", species, petal_length:petal_width)
+dim(classy_data)
+head(classy_data)
+```
+
+### Count proportions with count_propotion()
+
+`count_proportion` checks the proportions of unique data values in a column and the proportion of the data that each value makes up.
+
+```{r}
+prop <- count_proportion(classy_data, "species", "tidied")
+```
+
+### Display your exploratory data with create_faceted_hist_plot()
+
+Two examples below show how you can use `create_faceted_hist_plot()` to create faceted histogram plots for each variable in `row`and align them for EDA.
+
+```{r}
+create_faceted_hist_plot(classy_data, "petal_width", "species")
+```
+
+```{r}
+create_faceted_hist_plot(classy_data, "petal_length", "species")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

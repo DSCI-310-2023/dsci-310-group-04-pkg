@@ -1,6 +1,6 @@
 Package: genreclassifier
-Title: Classifying Music Genres Using Spotify Audio Features
-Version: 0.0.0.1
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
 Authors@R: 
   c(person("Annabelle", "Purnomo", , "apurnomo@student.ubc.ca", role = c("aut", "cre")),
     person("Ethan", "Pang", , "epang210@gmail.com", role = c("aut")),
@@ -12,6 +12,9 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Suggests: 
     covr,
+    DT,
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Imports: 
@@ -20,5 +23,6 @@ Imports:
     RCurl,
     rlang,
     tibble,
-    utils,
-    usethis
+    utils
+VignetteBuilder: knitr
+URL: https://dsci-310.github.io/dsci-310-group-04-pkg/
