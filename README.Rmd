@@ -39,6 +39,12 @@ install.packages("genreclassifier")
 
 ## Contributing 
 
-For contribution guidelines, please refer to the standards outlined by the main project [here](https://github.com/annabelle-ep/dsci-310-group-04/blob/main/CONTRIBUTING.md).
+For contribution guidelines, please refer to the standards outlined [here](https://github.com/DSCI-310/dsci-310-group-04-pkg/blob/main/CONTRIBUTING.md), which are the same as the ones in the main project [there](https://github.com/annabelle-ep/dsci-310-group-04/blob/main/CONTRIBUTING.md).
 
-###### **License:** [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
+## Code of Conduct
+
+For community guidelines, see [here](https://github.com/DSCI-310/dsci-310-group-04-pkg/blob/main/CODE_OF_CONDUCT.md), again, mirrored in the main project [there](https://github.com/annabelle-ep/dsci-310-group-04/blob/main/CODE_OF_CONDUCT.md).
+
+## License
+
+This repository uses the MIT license, for more details please view [this](https://github.com/DSCI-310/dsci-310-group-04-pkg/blob/main/LICENSE.md)
